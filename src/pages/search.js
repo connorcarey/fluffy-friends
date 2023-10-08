@@ -1,11 +1,11 @@
 import * as React from 'react'
 import Layout from '../components/layout'
 import Seo from '../components/seo'
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery, navigate } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import {
     button,
-    image
+    container
 } from '../components/search.module.scss'
 
 const randomGenerator = (min, max) => {
@@ -30,8 +30,10 @@ query {
     const arry = data.allImageSharp.edges
     return (
         <Layout pageTitle="Search">
-            <GatsbyImage image={getImage(arry[randomGenerator(0, arry.length-1)].node)} alt="No Fluffy Friend:(" class={image}/>
-            <button onClick="window.location.reload()" type="button" className={button}>Next</button>
+            <div className={container}>
+                <GatsbyImage image={getImage(arry[randomGenerator(0, arry.length-1)].node)} alt="No Fluffy Friend:(" />
+                <button onClick={()=>{navigate("/search")}} type="button" className={button}>Next</button>
+            </div>
         </Layout>
     )    
 }

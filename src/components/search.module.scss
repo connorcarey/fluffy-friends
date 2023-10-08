@@ -1,12 +1,15 @@
-.button{
-    min-width: 500px;
+.container {
     padding: 1rem;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    min-width: 200px;
+}
+.button {
     color: white;
     background-color: lightpink;
     font-weight: 600;
     font-family: sans-serif;
-}
-.image{
-    display: flex;
-    justify-content: center;
+    padding: 1rem;
 }
