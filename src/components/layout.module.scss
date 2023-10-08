@@ -1,0 +1,33 @@
+.parent {
+    position: relative
+}
+.container {
+    margin: auto;
+    max-width: 500px;
+    font-family: sans-serif;
+    padding: 1rem
+}
+.heading {
+    color: lightpink;
+    text-align: center;   
+    font-weight: 800;
+    padding-bottom: 1rem;
+}
+.nav-links{
+    margin: auto;
+    max-width: 200px;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    list-style: none;
+    background-color: lightpink;
+    border-radius: 25px;
+}
+.nav-link-item{
+    padding: 1rem;
+    font-weight: 600;
+}
+.nav-link-text{
+    color: white;
+    text-decoration: none;
+}

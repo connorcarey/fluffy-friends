@@ -1,15 +1,39 @@
 import * as React from 'react'
-import Seo from './seo'
-import { useStaticQuery, graphql } from 'gatsby'
+import { Link, useStaticQuery, graphql} from 'gatsby'
+import {
+    container,
+    heading,
+    navLinks,
+    navLinkItem,
+    navLinkText
+} from './layout.module.scss'
 
 const Layout = ({ pageTitle, children }) => {
+    const data = useStaticQuery(graphql`
+        query {
+            site {
+                siteMetadata {
+                    title
+                }
+            }
+        }
+    `)
+
     return (
-        <div>
-            <header>{pageTitle}</header>
+        <div className={container}>
+            <header className={heading}>{data.site.siteMetadata.title}</header>
             <nav>
-                <ul>
-                    <li>Home</li>
-                    <li>Search</li>
+                <ul className={navLinks}>
+                    <li className={navLinkItem}>
+                        <Link to="/" className={navLinkText}>
+                            Home
+                        </Link>
+                    </li>
+                    <li className={navLinkItem}>
+                        <Link to="/search" className={navLinkText}>
+                            Search
+                        </Link>
+                    </li>
                 </ul>
             </nav>
             <main>
@@ -20,5 +44,4 @@ const Layout = ({ pageTitle, children }) => {
     )
 }
 
-export const Head = () => <Seo title="Placeholder"/>
 export default Layout
