@@ -29,7 +29,7 @@ query {
     `)
     const arry = data.allImageSharp.edges
     return (
-        <Layout pageTitle="Search">
+        <Layout>
             <div className={container}>
                 <GatsbyImage image={getImage(arry[randomGenerator(0, arry.length-1)].node)} alt="No Fluffy Friend:(" />
                 <button onClick={()=>{navigate("/search")}} type="button" className={button}>Next</button>
